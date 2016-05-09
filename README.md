@@ -5,8 +5,7 @@
 
 *Warning!* build project inside container works very slow with docker-machine on Mac.
 
-This module implements the process of bulding container for front applications. You can read the details in build-and-deploy.md
-in this repo.
+This module implements the process of bulding container for front applications.
 
 ## Options
 
