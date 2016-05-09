@@ -1,0 +1,21 @@
+{
+  "name": "build-front-container",
+  "version": "0.0.1",
+  "description": "",
+  "scripts": {
+    "test": "mocha"
+  },
+  "license": "MIT",
+  "bin": {
+    "build-front-container": "./bin/build-front-container"
+  },
+  "dependencies": {
+    "archiver": "^1.0.0",
+    "minimist": "^1.2.0",
+    "shelljs": "^0.6.0"
+  },
+  "devDependencies": {
+    "expect": "^1.20.1",
+    "mocha": "^2.4.5"
+  }
+}

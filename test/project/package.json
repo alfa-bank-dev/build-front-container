@@ -1,0 +1,7 @@
+{
+    "name": "tests for build-front-container. Dependencies field matters",
+    "dependencies": {
+        "m1": "*",
+        "m2": "*"
+    }
+}

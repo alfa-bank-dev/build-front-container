@@ -1,0 +1,4 @@
+#!/usr/bin/env node
+
+var build = require('../lib').build;
+build(require('minimist')(process.argv.slice(2)));
