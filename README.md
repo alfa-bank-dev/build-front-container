@@ -1,5 +1,6 @@
 # Build front container module
 
+[![Build Status](https://travis-ci.org/alfa-bank-dev/build-front-container.svg?branch=master)](https://travis-ci.org/alfa-bank-dev/build-front-container)
 
 *Warning!* build project inside container works very slow with docker-machine on Mac.
 
