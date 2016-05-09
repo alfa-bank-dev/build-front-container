@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/alfa-bank-dev/build-front-container.svg?branch=master)](https://travis-ci.org/alfa-bank-dev/build-front-container)
 
+
 *Warning!* build project inside container works very slow with docker-machine on Mac.
 
 This module implements the process of bulding container for front applications. You can read the details in build-and-deploy.md
