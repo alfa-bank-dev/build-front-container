@@ -40,7 +40,6 @@ describe('build front container', () => {
         expect(log[0][0].indexOf('Usage: build-front-container')).toNotBe(-1);
     });
 
-
     it('should check if container-name option is passed', () => {
         var catched = false;
         try {
@@ -112,7 +111,7 @@ describe('build front container', () => {
         process.chdir('./test/project');
 
         packDeps('../build').then(() => {
-            var res = shell.exec('tar -ztvf ../build/public-modules.tar.gz "*package.json"');
+            var res = shell.exec('tar -ztvf ../build/public-modules.tar.gz');
             ['m1/package.json', 'm2/package.json'].forEach(file => {
                 expect(res.stdout.indexOf(file)).toNotBe(-1);
             });
