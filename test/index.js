@@ -94,7 +94,8 @@ describe('build front container', () => {
         expect(fs.readFileSync(path.resolve(OUTPUT_DIR, 'log')).toString()).toBe('hi there\n');
     });
 
-    it('should check if deps changed', () => {
+    it('should check if deps changed', function() {
+        this.timeout(3000);
         createBuildEnv(OUTPUT_DIR);
         var prevNpmLs = '└── m1@0.0.1';
 
