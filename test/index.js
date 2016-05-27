@@ -19,7 +19,7 @@ var isDepsChanged = require('../lib/is-deps-changed');
 describe('build front container', function() {
 
     afterEach(function() {
-        shell.exec(`rm -rf ${OUTPUT_DIR}`);
+        shell.exec('rm -rf ' + OUTPUT_DIR);
         shell.exec('rm -rf test/output');
         shell.exec('rm -f ./build.sh');
     });
@@ -68,7 +68,7 @@ describe('build front container', function() {
         createBuildEnv(OUTPUT_DIR, './test/build-test.sh');
 
         expect(fs.existsSync(OUTPUT_DIR)).toBe(true);
-        expect(fs.existsSync(`${OUTPUT_DIR}/Dockerfile`)).toBe(true);
+        expect(fs.existsSync(OUTPUT_DIR + '/Dockerfile')).toBe(true);
         expect(fs.readFileSync('./build.sh')).toEqual(fs.readFileSync('./test/build-test.sh'));
     });
 
