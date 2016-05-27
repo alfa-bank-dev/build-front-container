@@ -69,7 +69,7 @@ describe('build front container', function() {
 
         expect(fs.existsSync(OUTPUT_DIR)).toBe(true);
         expect(fs.existsSync(OUTPUT_DIR + '/Dockerfile')).toBe(true);
-        expect(fs.readFileSync('./build.sh')).toEqual(fs.readFileSync('./test/build-test.sh'));
+        expect(fs.readFileSync('./build.sh').toString()).toEqual(fs.readFileSync('./test/build-test.sh').toString());
     });
 
     it('should choose prepared build.sh script for BEM project', function() {
