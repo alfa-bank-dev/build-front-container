@@ -16,15 +16,15 @@ var CWD = process.cwd();
 
 var isDepsChanged = require('../lib/is-deps-changed');
 
-describe('build front container', () => {
+describe('build front container', function() {
 
-    afterEach(() => {
+    afterEach(function() {
         shell.exec(`rm -rf ${OUTPUT_DIR}`);
         shell.exec('rm -rf test/output');
         shell.exec('rm -f ./build.sh');
     });
 
-    it('should print help info', () => {
+    it('should print help info', function() {
         var log = [];
         var consoleLogOriginal = console.log;
         console.log = function() {
@@ -40,7 +40,7 @@ describe('build front container', () => {
         expect(log[0][0].indexOf('Usage: build-front-container')).toNotBe(-1);
     });
 
-    it('should check if container-name option is passed', () => {
+    it('should check if container-name option is passed', function() {
         var catched = false;
         try {
             build({});
@@ -52,7 +52,7 @@ describe('build front container', () => {
         expect(catched).toBe(true);
     });
 
-    it('should check if docker-registry option is passed', () => {
+    it('should check if docker-registry option is passed', function() {
         var catched = false;
         try {
             build({ 'container-name': 'hi-there' });
@@ -64,7 +64,7 @@ describe('build front container', () => {
         expect(catched).toBe(true);
     });
 
-    it('should create build env', () => {
+    it('should create build env', function() {
         createBuildEnv(OUTPUT_DIR, './test/build-test.sh');
 
         expect(fs.existsSync(OUTPUT_DIR)).toBe(true);
@@ -72,22 +72,22 @@ describe('build front container', () => {
         expect(fs.readFileSync('./build.sh')).toEqual(fs.readFileSync('./test/build-test.sh'));
     });
 
-    it('should choose prepared build.sh script for BEM project', () => {
+    it('should choose prepared build.sh script for BEM project', function() {
         var res = getBuildScriptPath(null, 'bem');
         expect(res).toBe(path.resolve(CWD, 'build-scripts/bem.sh'));
     });
 
-    it('should choose prepared build.sh script for Webpack project', () => {
+    it('should choose prepared build.sh script for Webpack project', function() {
         var res = getBuildScriptPath(null, 'webpack');
         expect(res).toBe(path.resolve(CWD, 'build-scripts/webpack.sh'));
     });
 
-    it('should choose build.sh script for Webpack project by default', () => {
+    it('should choose build.sh script for Webpack project by default', function() {
         var res = getBuildScriptPath();
         expect(res).toBe(path.resolve(CWD, 'build-scripts/webpack.sh'));
     });
 
-    it('should exec build.sh to build project if build-on-host was passed', () => {
+    it('should exec build.sh to build project if build-on-host was passed', function() {
         createBuildEnv(OUTPUT_DIR, './test/build-test.sh');
         buildProject(true);
 
@@ -107,13 +107,13 @@ describe('build front container', () => {
         process.chdir('../..');
     });
 
-    it('should pack deps', (done) => {
+    it('should pack deps', function(done) {
         createBuildEnv(OUTPUT_DIR);
         process.chdir('./test/project');
 
-        packDeps('../build').then(() => {
+        packDeps('../build').then(function() {
             var res = shell.exec('tar -ztvf ../build/public-modules.tar.gz');
-            ['m1/package.json', 'm2/package.json'].forEach(file => {
+            ['m1/package.json', 'm2/package.json'].forEach(function(file) {
                 expect(res.stdout.indexOf(file)).toNotBe(-1);
             });
 
@@ -123,13 +123,13 @@ describe('build front container', () => {
 
     });
 
-    it('should pack app', (done) => {
+    it('should pack app', function(done) {
         createBuildEnv(OUTPUT_DIR);
         process.chdir('./test/project');
 
-        packApp('../build', 'my-project-build-dir').then(() => {
+        packApp('../build', 'my-project-build-dir').then(function() {
             var res = shell.exec('tar -ztvf ../build/app.tar.gz');
-            ['my-project-build-dir/hi-there', 'package.json', 'config'].forEach(file => {
+            ['my-project-build-dir/hi-there', 'package.json', 'config'].forEach(function(file) {
                 expect(res.stdout.indexOf(file)).toNotBe(-1);
             });
 
