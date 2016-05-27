@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "archiver": "^1.0.0",
+    "bluebird": "^3.4.0",
     "minimist": "^1.2.0",
     "shelljs": "^0.6.0"
   },
