@@ -27,6 +27,8 @@ Then we need to put these files into container. For this purpose, two archives c
 
 And then just put them inside the image(see Dockerfile).
 
+It's better not to add the build-front-container module to the package.json as a dependency. But install it manually before build.
+
 
 ## Options
 
